@@ -1,12 +1,16 @@
-import React from 'react';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import AllCountries from "./Api/GeCountriesApi";
+import "./App.css";
 
 function App() {
-  return (
-    <div>
-     
-    </div>
-  );
+  const [myData, setData] = useState([]);
+  const [isCancelled, setIsCancelled] = useState(true);
+  useEffect(() => {
+    isCancelled && AllCountries(myData, setData);
+    console.log(myData);
+    setIsCancelled(false);
+  }, [myData, isCancelled]);
+  return <div></div>;
 }
 
 export default App;
