@@ -12,11 +12,18 @@ function App() {
   }, [myData, isCancelled]);
   return( <div>
  {
-  myData && myData.map(el=>(
-    <>
+  myData && myData.map((el,key)=>(
+    <div key={key}>
     <p>{el.name}</p>
+    <p>{el.nativeName}</p>
+    <p>{el.region}</p>
+    <p>{el.subregion}</p>
+    <p>{el.currencies}</p>
     <p>{el.timezones[0]}</p>
-</>
+    
+ 
+    
+</div>
   ))
  }
 
