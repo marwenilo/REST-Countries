@@ -3,12 +3,11 @@ import AllCountries from "./Api/GeCountriesApi";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -24,7 +23,13 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-evenly'
+  },
+  container:{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
   }
+  
   
 });
 const flag =(e)=>{
@@ -43,8 +48,9 @@ function App() {
   const classes = useStyles();
 
   return (
-   <>
-     
+    
+    <Container fixed className={classes.container}>
+     <CssBaseline />
     {myData && myData.map((el, key) => (
 
 <Card className={classes.root}>
@@ -62,7 +68,7 @@ function App() {
         />
         </CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            the nativeName of this country is {el.nativeName} and her capital is {el.capital} located in {el.region} exactly at {el.subregion}
+            The nativeName of this country is {el.nativeName} and her capital is {el.capital} located in {el.region} exactly at {el.subregion}
             and thier currencies is {el.currencies}
           </Typography>
         </CardContent>
@@ -70,7 +76,7 @@ function App() {
    
     </Card>
     ))}
-</>
+    </Container>
   
   );
 }
