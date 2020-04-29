@@ -10,7 +10,20 @@ function App() {
     console.log(myData);
     setIsCancelled(false);
   }, [myData, isCancelled]);
-  return <div></div>;
+  return( <div>
+ {
+  myData && myData.map(el=>(
+    <>
+    <p>{el.name}</p>
+    <p>{el.timezones[0]}</p>
+</>
+  ))
+ }
+
+
+
+
+  </div>);
 }
 
 export default App;
