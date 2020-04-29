@@ -63,10 +63,9 @@ function App() {
                   />
                 </CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  The nativeName of this country is {el.nativeName} and her
-                  capital is {el.capital} located in {el.region} exactly at{" "}
-                  {el.subregion}
-                  and thier currencies is {el.currencies}
+                  The native name of this country is <strong>{el.nativeName}</strong> and her
+                  capital is <strong>{el.capital}</strong> located in {el.region} exactly at
+                  <strong> {el.subregion}</strong> and thier currencies is <strong>{el.currencies}</strong>
                 </Typography>
               </CardContent>
             </CardActionArea>
