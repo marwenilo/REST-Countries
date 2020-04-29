@@ -14,7 +14,7 @@ const AllCountries = async (myData, setData) => {
       config
     );
 
-    const data = await res.data.map((el) => el);
+    const data = await res.data;
 
     setData(data);
 
