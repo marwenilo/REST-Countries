@@ -10,7 +10,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 
+//*************//
+
 const useStyles = makeStyles((theme) => ({
+
   root: {
     maxWidth: 345,
     display: "flex",
@@ -37,30 +40,47 @@ const useStyles = makeStyles((theme) => ({
       width: "79vw",
     },
   },
+
 }));
+
 const flag = (e) => {
+
   e.toLowerCase();
   return `https://www.countryflags.io/${e}/flat/64.png`;
+
 };
+
+//*************//
+
 function App() {
+
   const [myData, setData] = useState([]);
+
   const [isCancelled, setIsCancelled] = useState(true);
+
   const [search, setSearch] = useState("");
+
   useEffect(() => {
+
     isCancelled && AllCountries(myData, setData);
-    console.log(myData);
+
     setIsCancelled(false);
+
   }, [myData, isCancelled]);
+
   const classes = useStyles();
+
   const filteredSearch = myData
-    .sort((a, b) => b - a)
+
     .filter((item) => {
+
       return item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase());
+
     });
-  console.log(filteredSearch, "eee");
+  
   return (
     <Container fixed>
-      <form className={classes.search} noValidate autoComplete="off">
+      <form className={classes.search} noValidate autoComplete="on">
         <TextField
           id="outlined-basic"
           label="Search"
