@@ -60,6 +60,8 @@ function App() {
 
   const [search, setSearch] = useState("");
 
+  const [country, setCountry] = useState("");
+
   useEffect(() => {
 
     isCancelled && AllCountries(myData, setData);
@@ -77,7 +79,7 @@ function App() {
       return item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase());
 
     });
-  
+  console.log(country) //prep this for router when click on the card take the user to one country info
   return (
     <Container fixed>
       <form className={classes.search} noValidate autoComplete="on">
@@ -92,7 +94,9 @@ function App() {
         <CssBaseline />
         {myData &&
           filteredSearch.map((el, key) => (
-            <Card className={classes.root} key={key}>
+            <Card className={classes.root} key={key}
+            onClick={()=> setCountry(el.name)}
+            >
               <CardActionArea>
                 <CardContent>
                   <CardContent className={classes.myClass}>
